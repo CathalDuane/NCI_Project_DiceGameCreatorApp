@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Bootstrap Link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> 
+   
+    <!--Links to style and script files-->
+    <link rel="stylesheet" href="../style/style.css">
+    <script src="script.js"></script>
+    
+
+    <title>RollCalculator</title>
+
+
+</head>
+<body>
+    <div class = "container mt-5">
+        <!--Roll button top-->
+        <div class = "row ">
+            <div class = "col-lg-3"></div>
+            <div class = "col-lg-6 text-center shadow pb-3">
+                <div class = "row py-3 my-3 btn btn-primary full-width">
+                    <div class = "col">
+                        Roll Calculator
+                    </div>
+                </div>
+               <!--Text history-->
+               <!--This area will show the results and selected inputs from user-->
+               <div class = "row">
+                    <div class = "col my-3 ">
+                        <textarea class="full-width p-3 text-right" readonly id="history" rows="4" >
+                            
+                        </textarea>
+                    </div>
+                </div>
+
+                <!--Input-->
+                <div class = "row" >
+                    <div class = "col-10">
+                        <div class="row">
+                            <div clas = "col">
+                            <input type = "text" class="full-width" id="result"/>
+                            </div>
+                        </div>
+                        <div class = "row">
+                            <div class = "col-4">
+                                <!--Buttons-->
+                                 <div class = "row">
+                                    <div class = "col">
+                                        <input type="button" value="1" class="full-width" onclick="dis('1')"/>     
+                                    </div>   
+                                 </div>
+
+                                 <div class = "row">
+                                    <div class = "col">
+                                        <input type="button" value="4" class="full-width">     
+                                    </div>   
+                                 </div>
+
+                                 <div class = "row">
+                                    <div class = "col">
+                                        <input type="button" value="=" class="full-width" onclick="solve()"/>     
+                                    </div>   
+                                 </div>
+
+                                 <div class = "row">
+                                    <div class = "col full-width">
+                                        <button class= "full-width" onclick="generateRandomInteger(20)">D20</button>
+                                    </div>   
+                                 </div>
+
+
+
+
+
+
+
+                                 
+
+                
+                                   
+                            </div>
+
+                            <!--Second row of buttons-->
+                            <div class = "col-4">
+                                <!--Buttons-->
+                                 <div class = "row">
+                                    <div class = "col">
+                                        <input type="button" value="c" class="full-width" onclick="clear()"/>     
+                                    </div>   
+                                 </div>
+
+                                 <div class = "row">
+                                    <div class = "col">
+                                        <input type="button" value="4" class="full-width">     
+                                    </div>   
+                                 </div>
+
+                                 <div class = "row">
+                                    <div class = "col">
+                                        <input type="button" value="=" class="full-width" onclick="solve()"/>     
+                                    </div>   
+                                 </div>
+
+                                 <div class = "row">
+                                    <div class = "col full-width">
+                                        <button class= "full-width" onclick="roll(20)">D20</button>
+                                    </div>   
+                                 </div>
+
+                                   
+                            </div>
+
+                            
+                            
+                        </div>
+                      
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function clear(){
+    document.getElementById('result').value = "";
+}
+
+function dis(value){
+    document.getElementById('result').value += value;
+}
+// Generate a random numbers for standard dice rolls 
+function generateRandomInteger(max) {
+    return Math.floor(Math.random() * max) + 1;
+}
+
+
+// //clear input box
+// function clear(){
+//     document.getElementById('result').value = "";
+// }
+
+//Dice Roll
+function roll(value){
+    document.getElementById('result').value += generateRandomInteger(value); 
+}
+    </script>
+    
+</body>
+</html>
+
