@@ -1,3 +1,20 @@
 .full-width{
     width:100%;
 }
+
+.d20Color{
+    color: green;
+}
+
+.d10Color{
+    color: blue;
+}
+
+.d6Color{
+    color: orange;
+}
+
+.d4Color{
+    color: purple;
+}
+
