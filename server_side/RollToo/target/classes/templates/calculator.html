@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Bootstrap Link-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+  <!--Links to style and script files-->
+  <link rel="stylesheet" href="../style/style.css">
+  <script src="src/main/resources/static/calc_script.js"></script>
+
+
+  <title>RollCalculator</title>
+
+
+</head>
+<body>
+<div class = "container mt-5">
+  <!--Roll button top-->
+  <div class = "row ">
+    <div class = "col-lg-3"></div>
+    <div class = "col-lg-6 text-center shadow pb-3">
+      <div class = "row py-3 my-3 btn btn-primary full-width">
+        <div class = "col">
+          Roll Calculator
+        </div>
+      </div>
+
+
+      <div class ="row">
+        <div class="col - 6">
+          <h3>font family</h3>
+          <select onchange="myFunction(this);" size="13">
+            <option>comic sans</option>
+            <option>Palatino Linotype</option>
+            <option>Book Antiqua</option>
+            <option>Times New Roman</option>
+            <option>Arial</option>
+            <option>Helvetica</option>
+            <option>Arial Black</option>
+            <option>Impact</option>
+            <option>Lucida Sans Unicode</option>
+            <option>Tahoma</option>
+            <option>Verdana</option>
+            <option>Courier New</option>
+            <option>Lucida Console</option>
+          </select>
+        </div>
+
+        <div class="col - 6">
+          <h3>font size</h3>
+          <input type="range" min="10" max="30"
+                 id="slider" value="20" />
+        </div>
+
+
+      </div>
+      <!--Text history-->
+      <!--This area will show the results and selected inputs from user-->
+      <div class = "row">
+        <div class = "col my-3 ">
+          <textarea class="full-width p-3 text-right" readonly id="history" rows="4"></textarea>
+        </div>
+      </div>
+
+      <!--Input-->
+      <div class = "row" >
+        <div class = "col-8">
+          <div class="row">
+            <div clas = "col">
+              <input type = "text" class="full-width" id="result"/>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col-4">
+              <!--Buttons-->
+              <div class = "row">
+                <div class = "col">
+                  <input type="button" value="1" class="full-width" onclick="dis('1')"/>
+                </div>
+              </div>
+
+              <div class = "row">
+                <div class = "col">
+                  <input type="button" value="4" class="full-width" onclick="dis('4')"/>
+                </div>
+              </div>
+
+              <div class = "row">
+                <div class = "col">
+                  <input type="button" value="7" class="full-width" onclick="dis('7')"/>
+                </div>
+              </div>
+
+              <div class = "row">
+                <div class = "col">
+                  <input type="button" value="." class="full-width" onclick="dis('.')"/>
+                </div>
+              </div>
+
+            </div>
+
+            <!--Second row of buttons-->
+
+            <div class = "col-4">
+              <!--Buttons-->
+              <div class = "row">
+                <div class = "col">
+                  <input type="button" value="2" class="full-width" onclick="dis('2')"/>
+                </div>
+              </div>
+
+              <div class = "row">
+                <div class = "col">
+                  <input type="button" value="5" class="full-width" onclick="dis('5')"/>
+                </div>
+              </div>
+
+              <div class = "row">
+                <div class = "col">
+                  <input type="button" value="8" class="full-width" onclick="dis('8')"/>
+                </div>
+              </div>
+
+              <div class = "row">
+                <div class = "col full-width">
+                  <input type="button" value ="0" class= "full-width" onclick="dis('0')"/>
+                </div>
+              </div>
+
+            </div>
+
+            <!--Third row of number buttons-->
+            <div class = "col-4">
+              <!--Buttons-->
+              <div class = "row">
+                <div class = "col">
+                  <input type="button" value="3" class="full-width" onclick="dis('3')"/>
+                </div>
+              </div>
+
+              <div class = "row">
+                <div class = "col">
+                  <input type="button" value="6" class="full-width" onclick="dis('6')"/>
+                </div>
+              </div>
+
+              <div class = "row">
+                <div class = "col">
+                  <input type="button" value="9" class="full-width" onclick="dis('9')"/>
+                </div>
+              </div>
+
+              <div class = "row">
+                <div class = "col">
+                  <input type="button" value="=" class="full-width" onclick="equals()"/>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!--Operations buttons-->
+        <div class = "col-2">
+          <!--Buttons-->
+          <div class = "row " >
+            <div class = "col ">
+              <input type="button" value="C" class="full-width " onclick="clearInput()"/>
+            </div>
+          </div>
+
+          <div class = "row">
+            <div class = "col">
+              <input type="button" value="+" class="full-width" onclick="dis('+')"/>
+            </div>
+          </div>
+
+          <div class = "row">
+            <div class = "col">
+              <input type="button" value="-" class="full-width" onclick="dis('-')"/>
+            </div>
+          </div>
+
+          <div class = "row">
+            <div class = "col">
+              <input type="button" value="*" class="full-width" onclick="dis('*')"/>
+            </div>
+          </div>
+
+          <div class = "row">
+            <div class = "col">
+              <input type="button" value="/" class="full-width" onclick="dis('/')"/>
+            </div>
+          </div>
+
+
+        </div>
+
+        <!--Dice roll buttons-->
+        <div class = "col-2">
+          <!--Buttons-->
+          <div class = "row">
+            <div class = "col">
+              <input type="button" value="D20" class="full-width d20Color" onclick="roll(20)"/>
+            </div>
+          </div>
+
+          <div class = "row">
+            <div class = "col">
+              <input type="button" value="D10" class="full-width d10Color" onclick="roll(10)"/>
+            </div>
+          </div>
+
+          <div class = "row">
+            <div class = "col">
+              <input type="button" value="D6" class="full-width d6Color" onclick="roll(6)"/>
+            </div>
+          </div>
+
+          <div class = "row">
+            <div class = "col">
+              <input type="button" value="D4" class="full-width d4Color" onclick="roll(4)"/>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col">
+              <input type="button" value="." class="full-width" onclick="dis('.')"/>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Character atrributes -->
+        <div class = "col-2">
+          <!--Buttons-->
+          <div class = "row mt-3">
+            <div class = "col">
+              <input type="button" value="Str" class="full-width" onclick=""/>
+            </div>
+          </div>
+
+          <div class = "row">
+            <div class = "col">
+              <input type="button" value="Dex" class="full-width" onclick=""/>
+            </div>
+          </div>
+
+          <div class = "row">
+            <div class = "col">
+              <input type="button" value="Con" class="full-width" onclick=""/>
+            </div>
+          </div>
+
+          <div class = "row">
+            <div class = "col">
+              <input type="button" value="Int" class="full-width" onclick=""/>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col">
+              <input type="button" value="Wis" class="full-width" onclick=""/>
+            </div>
+          </div>
+
+          <div class = "row">
+            <div class = "col">
+              <input type="button" value="Char" class="full-width" onclick=""/>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+
+</body>
+</html>
+
